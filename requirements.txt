@@ -35,7 +35,7 @@ distlib==0.3.6
 distro==1.5.0
 distro-info==1.0+deb11u1
 dj-database-url==2.0.0
-Django==4.1.7
+Django==4.0.0
 django-bootstrap-icons==0.8.5
 django-ckeditor==6.5.1
 django-countdowntimer-model==0.0.7
