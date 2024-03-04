@@ -1,5 +1,5 @@
 """
-ASGI config for FakeFacebook project.
+ASGI config for FetcherApp project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FakeFacebook.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FetcherApp.settings')
 
 application = get_asgi_application()

@@ -81,4 +81,4 @@ zope.event==4.4
 zope.hookable==5.0.1
 zope.interface==5.2.0
 
-# python -m gunicorn FakeFacebook.asgi:application -k uvicorn.workers.UvicornWorker
+# python -m gunicorn FetcherApp.asgi:application -k uvicorn.workers.UvicornWorker
