@@ -2,6 +2,10 @@
 
 /*Login*/
 
+body {
+    height: fit-content;
+}
+
 .facebook {
     font-weight: bold;
     font-size: 3.5em;

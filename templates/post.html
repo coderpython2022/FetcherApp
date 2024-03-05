@@ -1,4 +1,5 @@
 {% load static %}
+{% load mathfilters %}
 
 <!DOCTYPE html>
 <html lang="ar">
@@ -18,7 +19,8 @@
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 
-    <title>القبض على يحيى خفاجى</title>
+
+    <title>القبض على عمار مختار</title>
 
     <style>
 
@@ -34,76 +36,89 @@
 
 <body class="bg-gray" dir="rtl">
 
-<div class="container-fluid mt-5 mb-5">
+<div class="container-fluid mt-3 mb-2">
     <div class="row d-flex align-items-center justify-content-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="d-flex justify-content-between p-2 px-3">
-                    <div class="d-flex flex-row align-items-center"> <img src="https://cdn.iconscout.com/icon/free/png-512/free-media-reporter-1184508.png?f=webp&w=256" width="50" class="rounded-circle">
-                        <div class="d-flex flex-column ml-2"> <span class="font-weight-bold me-2">الصحفية ندا البيلي</span> <small class="text-muted me-2">
-                            <i class="fa-solid fa-earth-americas ms-1" title="تمت المشاركة مع العامة"></i>
-                        25 دقيقة</small> </div>
-                    </div>
-                    <div class="d-flex flex-row mt-1 ellipsis">
-
-                         <i class="fa fa-ellipsis-h mx-3"></i> 
-                        <i class="fa-solid fa-xmark"></i>
-                        </div>
-                </div> 
-
-                <p class="text-justify p-3 mb-0">تم القبض على المدعو/ يحيى خفاجى بتهمة الكسب غير المشروع، وجاري العرض على النيابة العامة للتحقيق في هذا الأمر.</p>
-                <img src="{% static "../static/img/yehia.jpg" %}" class="img-fluid">
-                <div class="p-2">
+            <div class="card h-100">
+                 <div class="card-body">
                     
-                    {% include "emotions.html" %}
+                    <div class="d-flex justify-content-between px-3">
+                        <div class="d-flex flex-row align-items-center"> 
+                            <img src="https://cdn.iconscout.com/icon/free/png-512/free-media-reporter-1184508.png?f=webp&w=256" width="50" class="rounded-circle">
+                            <div class="d-flex flex-column ml-2"> <span     class="font-weight-bold me-2">الصحفية ندا البيلي</span> <small class="text-muted me-2">
+                            <i class="fa-solid fa-earth-americas ms-1" title="تمت المشاركة مع العامة"></i>
+                            25 دقيقة</small>
+                            </div>
+                        </div>
 
-                    <hr class="my-2">
-                    <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex flex-row mt-1 ellipsis">
+                                <i class="fa fa-ellipsis-h mx-3"></i> 
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
 
-                        <div class="d-flex flex-row"> 
-                            <span class="text-muted mx-5">
+                    </div> 
+
+                        <p class="text-justify p-3 mb-0">تم القبض على المدعو/ عمار مختار بتهمة الكسب غير المشروع، وجاري العرض على النيابة العامة للتحقيق في هذا الأمر.</p>
+                        
+                        <img src="{% static "../static/img/ammar.jpg" %}" class="img-fluid">
+
+                    <div class="p-2">
+                    
+                        {% include "emotions.html" %}
+
+                        <hr class="my-2">
+                    
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span type="button" class="float-end text-muted me-1"  data-bs-toggle="modal" data-bs-target="#siteModal">
                                 <i class="fa-regular fa-thumbs-up"></i>
                                 أعجبني
                             </span>
 
-                            <span class="text-muted mx-5">
+                            <span type="button" class="float-center text-muted " data-bs-toggle="modal" data-bs-target="#siteModal">
                                 <i class="fa-regular fa-comment"></i>
                                 تعليق
                             </span>
 
-                            <span class="text-muted mx-5">
+                            <span type="button" class="float-start text-muted ms-1" data-bs-toggle="modal" data-bs-target="#siteModal">
                                 <i class="fa-regular fa-share"></i>
                                 مشاركة
                             </span>
                         </div>
-                    </div>
-                    <hr class="my-2">
 
-                    <div class="comments">
+                        <hr class="mt-0 mb-2">
 
-                        <div class="d-flex flex-row mb-1"> 
-                            <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" height="30" class="rounded-4 ms-2">
+                        {% for name in names %}
+                            {% for comment in comments %}
+                                <div class="comments mb-3">
+                                    <div class="d-flex flex-row mb-1"> 
+                                        <img src="https://picsum.photos/id/{{forloop.counter}}/300" width="40" height="40" class="ms-2" style="border-radius:60%">
+                                        <div class="d-flex flex-column ml-2 p-2 rounded-1" style="background-color:#EBEDF0;"> <span class="name">{{name}}</span> 
+                                                <small class="comment-text text-muted">{{comment}}</small>
+                                        </div>
+                                    </div>
 
-                            <div class="d-flex flex-column ml-2 p-2 rounded-1" style="background-color:#EBEDF0;"> <span class="name">محمود وائل</span> <small class="comment-text text-muted">الواد دا مكنتش برتاح له من زمان أساسا</small>
-                            </div>
-                            </div>
+                                    <div class="mt-0 mx-5 d-flex flex-row align-items-center status">
 
-                            <div class="mt-0 mx-5 d-flex flex-row align-items-center status">
+                                            <small type="button" class="text-muted" data-bs-toggle="modal" data-bs-target="#siteModal">أعجبني</small>
+                                            <small class="mx-3 text-muted" type="button" data-bs-toggle="modal" data-bs-target="#siteModal">تعليق</small>
+                                            <small class="text-muted">{{forloop.counter|mul:3}} دقيقة</small>
 
-                                <small class="text-muted">أعجبني</small>
-                                <small class="mx-3 text-muted">تعليق</small>
-                                <small class="mx-5 text-muted">5 د</small>
-
+                                    </div>
                                 </div>
-                        </div>
+                                {% endfor %}
+                                {% endfor %}
 
-                        <div class="comment-input mx-5 mt-3 p-2"> 
-                                <i class="fa-regular fa-comment text-dark fa-1x mx-2"></i>
-            
-                            <span class="text-muted">
-                                تم غلق ميزة التعليقات بناء على طلب صاحب المنشور
-                            </span>
-                           
+                                <div class="comment-input mx-1 mt-3 p-2 text-center alert alert-danger"> 
+                                    <i class="fa-regular fa-comment text-dark fa-1x mx-2"></i>
+                
+                                    <span class="text-muted" style="font-size:15px">
+                                 تم غلق التعليقات بناء على طلب صاحب المنشور
+                                    </span>
+                                </div>
+
+                                {% include "modal.html" %}
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,6 +133,7 @@
     <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
     <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
     <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

