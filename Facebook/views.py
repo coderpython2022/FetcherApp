@@ -5,6 +5,11 @@ import time
 from django.views.decorators.cache import cache_control
 from .names_comments import names, comments
 # Create your views here.
+
+def instagram(request):
+    context = {}
+    return render(request, 'insta.html', context)
+
 def facebook(request):
     context = {}
     return render(request, 'index.html', context)
