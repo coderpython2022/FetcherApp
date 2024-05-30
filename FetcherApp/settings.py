@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'Facebook',
     'fontawesomefree',
     'mathfilters',
-    'fetcherapp.onrender.com'
+    'FetcherApp.onrender.com'
 ]
 
 MIDDLEWARE = [
