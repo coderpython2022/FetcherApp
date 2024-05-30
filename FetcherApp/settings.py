@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Facebook',
     'fontawesomefree',
-    'mathfilters'
+    'mathfilters',
+    'fetcherapp.onrender.com'
 ]
 
 MIDDLEWARE = [
