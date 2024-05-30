@@ -20,6 +20,17 @@ class FacebookLogin():
         elif browser == 'Firefox':
             # Set it to Firefox
             self.driver = webdriver.Firefox()
+        
+        mobile_emulation = {
+            "deviceMetrics": 
+            {"width": 360, "height": 640, "pixelRatio": 3.0},
+            "userAgent": "Mozilla/5.0 (Linux; Android 14; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"
+            }
+        chrome_options = webdriver.ChromeOptions()
+
+        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+
         self.driver.get(LOGIN_URL)
         time.sleep(1) # Wait for some time to load
  
