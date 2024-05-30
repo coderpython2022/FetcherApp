@@ -5,120 +5,138 @@
 <html lang="ar">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "../static/css/theme.css" %}">
-    <link rel="stylesheet" href="{% static "../static/css/bootstrap.min.css" %}">
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    <link rel="shortcut icon" href="{% static "../static/img/facebook-logo-2019.ico" %}" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static "../static/css/theme.css" %}">
+<link rel="stylesheet" href="{% static "../static/css/bootstrap.min.css" %}">
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+<link rel="shortcut icon" href="{% static "../static/img/facebook-logo-2019.ico" %}" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 
 
-    <title>القبض على عمار مختار</title>
+<title>حمادة رضوان النصاب</title>
 
-    <style>
+<style>
 
-        body{
-            font-family: "Tajawal", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: bold;
-            font-style: normal;
-        }
+    body{
+        font-family: "Tajawal", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
+        font-style: normal;
+    }
 
-  </style>
+</style>
 </head>
 
 <body class="bg-gray" dir="rtl">
 
 <div class="container-fluid mt-3 mb-2">
-    <div class="row d-flex align-items-center justify-content-center">
-        <div class="col-md-6">
-            <div class="card h-100">
-                 <div class="card-body">
-                    
-                    <div class="d-flex justify-content-between px-3">
-                        <div class="d-flex flex-row align-items-center"> 
-                            <img src="https://cdn.iconscout.com/icon/free/png-512/free-media-reporter-1184508.png?f=webp&w=256" width="50" class="rounded-circle">
-                            <div class="d-flex flex-column ml-2"> <span     class="font-weight-bold me-2">الصحفية ندا البيلي</span> <small class="text-muted me-2">
-                            <i class="fa-solid fa-earth-americas ms-1" title="تمت المشاركة مع العامة"></i>
-                            25 دقيقة</small>
-                            </div>
-                        </div>
-
-                            <div class="d-flex flex-row mt-1 ellipsis">
-                                <i class="fa fa-ellipsis-h mx-3"></i> 
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-
-                    </div> 
-
-                        <p class="text-justify p-3 mb-0">تم القبض على المدعو/ عمار مختار بتهمة الكسب غير المشروع، وجاري العرض على النيابة العامة للتحقيق في هذا الأمر.</p>
-                        
-                        <img src="{% static "../static/img/ammar.jpg" %}" class="img-fluid">
-
-                    <div class="p-2">
-                    
-                        {% include "emotions.html" %}
-
-                        <hr class="my-2">
-                    
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span type="button" class="float-end text-muted me-1"  data-bs-toggle="modal" data-bs-target="#siteModal">
-                                <i class="fa-regular fa-thumbs-up"></i>
-                                أعجبني
-                            </span>
-
-                            <span type="button" class="float-center text-muted " data-bs-toggle="modal" data-bs-target="#siteModal">
-                                <i class="fa-regular fa-comment"></i>
-                                تعليق
-                            </span>
-
-                            <span type="button" class="float-start text-muted ms-1" data-bs-toggle="modal" data-bs-target="#siteModal">
-                                <i class="fa-regular fa-share"></i>
-                                مشاركة
-                            </span>
-                        </div>
-
-                        <hr class="mt-0 mb-2">
-
-                        {% for name in names %}
-                            {% for comment in comments %}
-                                <div class="comments mb-3">
-                                    <div class="d-flex flex-row mb-1"> 
-                                        <img src="https://picsum.photos/id/{{forloop.counter}}/300" width="40" height="40" class="ms-2" style="border-radius:60%">
-                                        <div class="d-flex flex-column ml-2 p-2 rounded-1" style="background-color:#EBEDF0;"> <span class="name">{{name}}</span> 
-                                                <small class="comment-text text-muted">{{comment}}</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="mt-0 mx-5 d-flex flex-row align-items-center status">
-
-                                            <small type="button" class="text-muted" data-bs-toggle="modal" data-bs-target="#siteModal">أعجبني</small>
-                                            <small class="mx-3 text-muted" type="button" data-bs-toggle="modal" data-bs-target="#siteModal">تعليق</small>
-                                            <small class="text-muted">{{forloop.counter|mul:3}} دقيقة</small>
-
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endfor %}
-
-                                <div class="comment-input mx-1 mt-3 p-2 text-center alert alert-danger"> 
-                                    <i class="fa-regular fa-comment text-dark fa-1x mx-2"></i>
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-6">
+        <div class="card h-100">
+                <div class="card-body">
                 
-                                    <span class="text-muted" style="font-size:15px">
-                                 تم غلق التعليقات بناء على طلب صاحب المنشور
-                                    </span>
+                <div class="d-flex justify-content-between px-3">
+                    <div class="d-flex flex-row align-items-center">
+
+                        <a data-bs-toggle="modal" data-bs-target="#siteModal"><img src="../static/img/mubasher.png" width="50" class="rounded-circle">
+                        </a>
+                        <div class="d-flex flex-column ml-2"> <span class="font-weight-bold me-2">
+                            <a class="text-decoration-none text-dark" target="_blank" data-bs-toggle="modal" data-bs-target="#siteModal">
+                            مباشر كفرالشيخ - mubasherkfs 
+                            </a>
+                        </span> <small class="text-muted me-2">
+                        <i class="fa-solid fa-earth-americas ms-1" title="تمت المشاركة مع العامة"></i>
+                        25 دقيقة</small>
+                        </div>
+                    </div>
+
+                        <div class="d-flex flex-row mt-1 ellipsis">
+                            <i data-bs-toggle="modal" data-bs-target="#siteModal" class="fa fa-ellipsis-h mx-3"></i> 
+                            <i data-bs-toggle="modal" data-bs-target="#siteModal" class="fa-solid fa-xmark"></i>
+                        </div>
+
+                </div> 
+
+                    <p class="text-justify p-3 mb-0">تم تقديم عدة بلاغات للنائب العام المصري والإماراتي في المدعو: حمادة رضوان -من محافظة كفر الشيخ - مصري الجنسية - بتهمة الاستيلاء على ملايين الجنيهات من مجموعة من المواطنين من عدة محافظات مصرية بغرض توظيفها، ومن ثم قام بالنصب على أصحاب هذه الأموال، وقد تقدم عدد كبير من المواطنين ببلاغات ضده - مطالبين بحقوقهم، وقد قامت قوات مباحث كفر الشيخ بمداهمة بيته - وتأكد خلو البيت منه، مؤكدين سفره خارج البلاد، وبالتحريات تبين سفره إلى دولة الإمارات العربية الشقيقة، وتم إبلاغ السلطات باتخاذ اللازم.
+                        <hr class="mt-0 mb-0">
+                        
+                     رابط صفحته على الفيسبوك <br>
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100091840010424">https://www.facebook.com/profile.php?id=100091840010424</a>
+                        <br>
+
+                        رقم تليفونه بالإمارات <br>
+                        <a dir="ltr" target="_blank" href="tel:+971 50 522 4486">+971505224486</a>
+                        <br>
+
+                        شييييير يا شباب على أوسع نطاق
+                        <br> <br>
+
+                        <a href="#">الصحفية_ندا_البيلي</a>
+                    </p>
+                    
+                    <img src="{% static "../static/img/nasaab.jpeg" %}" class="img-fluid">
+
+                <div class="p-2">
+                
+                    {% include "emotions.html" %}
+
+                    <hr class="my-2">
+                
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span type="button" class="float-end text-muted me-1"  data-bs-toggle="modal" data-bs-target="#siteModal">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            أعجبني
+                        </span>
+
+                        <span type="button" class="float-center text-muted " data-bs-toggle="modal" data-bs-target="#siteModal">
+                            <i class="fa-regular fa-comment"></i>
+                            تعليق
+                        </span>
+
+                        <span type="button" class="float-start text-muted ms-1" data-bs-toggle="modal" data-bs-target="#siteModal">
+                            <i class="fa-regular fa-share"></i>
+                            مشاركة
+                        </span>
+                    </div>
+
+                    <hr class="mt-0 mb-2">
+
+                    {% for name in tupleNamesComments %}
+                            <div class="comments mb-3">
+                                <div class="d-flex flex-row mb-1"> 
+                                    <img src="https://picsum.photos/id/{{forloop.counter}}/300" width="40" height="40" class="ms-2" style="border-radius:60%">
+                                    <div class="d-flex flex-column ml-2 p-2 rounded-1" style="background-color:#EBEDF0;"> <span class="name">{{name.name}}</span> 
+                                            <small class="comment-text text-muted">{{name.comment}}</small>
+                                    </div>
                                 </div>
 
-                                {% include "modal.html" %}
+                                <div class="mt-0 mx-5 d-flex flex-row align-items-center status">
 
+                                        <small type="button" class="text-muted" data-bs-toggle="modal" data-bs-target="#siteModal">أعجبني</small>
+                                        <small class="mx-3 text-muted" type="button" data-bs-toggle="modal" data-bs-target="#siteModal">تعليق</small>
+                                        <small class="text-muted">{{forloop.counter|mul:3}} دقيقة</small>
+
+                                </div>
                             </div>
+                            {% endfor %}
+
+                            <div class="comment-input mx-1 mt-3 p-2 text-center alert alert-danger"> 
+                                <i class="fa-regular fa-comment text-dark fa-1x mx-2"></i>
+            
+                                <span class="text-muted" style="font-size:15px">
+                                تم غلق التعليقات بناء على طلب صاحب المنشور
+                                </span>
+                            </div>
+
+                            {% include "modal.html" %}
+
                         </div>
                     </div>
                 </div>
@@ -126,14 +144,15 @@
         </div>
     </div>
 </div>
-    
+</div>
 
-    <script src="{% static "../static/js/theme.js" %}"></script>
-    <script src="{% static "../static/js/bootstrap.min.js" %}"></script>
-    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
-    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
-    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="{% static "../static/js/theme.js" %}"></script>
+<script src="{% static "../static/js/bootstrap.min.js" %}"></script>
+<script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+<script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+<script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

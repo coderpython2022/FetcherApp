@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from selenium import webdriver
 # from webdriver_manager.firefox import GeckoDriverManager
 # from webdriver_manager.chrome import ChromeDriverManager
@@ -8,6 +9,7 @@ from selenium.webdriver.common.by import By
 LOGIN_URL = 'https://www.facebook.com/login.php'
 
 class FacebookLogin():
+    isLogged = False
     def __init__(self, email, password, browser='Chrome'):
         # Store credentials for login
         self.email = email
@@ -29,5 +31,13 @@ class FacebookLogin():
         password_element.send_keys(self.password) # Give password as input too
 
         password_element.send_keys(Keys.RETURN)
- 
-        time.sleep(5) # Wait for 2 seconds for the page to show up
+        time.sleep(3) # Wait for 2 seconds for the page to show up
+
+        if self.driver.title == 'Log in to Facebook':
+            self.isLogged = False
+            self.driver.close()
+        
+        else:
+            self.isLogged = True
+        
+

