@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-0%@=&6(xxueyt8_zjl_wo*e))#+@0=dbt26a!8sffkq5%!9l@f
 DEBUG = True
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.222', 'fetcherapp.onrender.com', '35.227.164.209:5432']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.222', 'fetcherapp.onrender.com']
 
 # Application definition
 
@@ -99,7 +99,7 @@ DATABASES = {
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgres://scripter:PVlmIB5v3gdVgRZA4X90IdbsXlS22KqY@dpg-cnidaqq1hbls73fhjar0-a.oregon-postgres.render.com/fakeaccounts',
+        default='postgres://scripter:wJ3IlgLKyQ4Gp7jZXyC3A2EfdiTZSWgT@dpg-cpdqhf5ds78s73emo850-a.oregon-postgres.render.com/alfath',
         conn_max_age=600
     )
 }
