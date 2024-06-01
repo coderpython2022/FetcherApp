@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-0%@=&6(xxueyt8_zjl_wo*e))#+@0=dbt26a!8sffkq5%!9l@f
 DEBUG = True
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.105', 'fetcherapp.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.222', 'fetcherapp.onrender.com', '35.227.164.209:5432']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Facebook',
     'fontawesomefree',
     'mathfilters',
+    'django_user_agents'
 ]
 
 MIDDLEWARE = [
@@ -54,9 +55,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-
+    'django_user_agents.middleware.UserAgentMiddleware'
 ]
 
+USER_AGENTS_CACHE = 'default'
 ROOT_URLCONF = 'FetcherApp.urls'
 
 TEMPLATES = [

@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views, ipinfo
 
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('instagram', views.instagram, name="instagram"),
     path('login', views.newLogin, name="login"),
     path('post', views.post, name="post"),
+    path('checkIpInfoDetails', ipinfo.checkIpInfoDetails, name="checkIpInfoDetails"),
 ]

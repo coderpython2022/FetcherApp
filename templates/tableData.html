@@ -1,0 +1,49 @@
+  {% load user_agents %}
+
+  <table class="table table-bordered text-center">
+  <thead>
+    <tr>
+        <th scope="col" class="bg-success">Status</th>
+      <th scope="col" class="bg-success">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>
+            {% if request|is_tablet %}Tablet{% endif %}
+            {% if request|is_mobile %}Mobile{% endif %}
+             {% if request|is_touch_capable %} Touch {% endif %}
+             {% if request|is_pc %}Pc{% endif %}
+        </td>
+        <th scope="row">Device Type</th>
+    </tr>
+
+        <tr>
+            <td>{{request.user_agent.browser.family}} => Ver: {{request.user_agent.browser.version}}</td>
+            <th scope="row">Browser</th>
+        </tr>
+
+        <tr>
+            <td>{{request.user_agent.os.family}} => Ver: {{request.user_agent.os.version}}</td>
+            <th scope="row">Os</th>
+        </tr>
+
+        <tr>
+            <td>{{request.user_agent.device.family}}</td>
+            <th scope="row">Device Family</th>
+        </tr>
+
+        <tr>
+                    <td>{{ip_address}}</td>
+                    <th scope="row">IP Address</th>
+        </tr>
+
+        <tr>
+                            <td>{{location_data}}</td>
+                            <th scope="row">Location</th>
+                </tr>
+
+                {{ipDetails}}
+
+  </tbody>
+</table>
