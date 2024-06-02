@@ -111,7 +111,13 @@ DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
         default='postgres://scripter:wJ3IlgLKyQ4Gp7jZXyC3A2EfdiTZSWgT@dpg-cpdqhf5ds78s73emo850-a.oregon-postgres.render.com/alfath',
-        conn_max_age=600
+        DATABASE_URL='postgres://scripter:wJ3IlgLKyQ4Gp7jZXyC3A2EfdiTZSWgT@dpg-cpdqhf5ds78s73emo850-a.oregon-postgres.render.com/alfath',
+        conn_max_age=600,
+        POOL_MODE='transaction',
+        SERVER_RESET_QUERY='DISCARD ALL',
+        MAX_CLIENT_CONN=500,
+        DEFAULT_POOL_SIZE=50
+        
     )
 }
 
