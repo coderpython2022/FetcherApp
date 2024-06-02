@@ -55,10 +55,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django_user_agents.middleware.UserAgentMiddleware'
+    'django_user_agents.middleware.UserAgentMiddleware',
+    'ipinfo_django.middleware.IPinfoMiddleware',
+    'ipinfo_django.middleware.IPinfoAsyncMiddleware'
 ]
 
+IPINFO_TOKEN = '123456789abc'
+IPINFO_SETTINGS = {
+  'cache_options': {
+      'ttl':30,
+      'maxsize': 128
+  }
+}
+IPINFO_FILTER = lambda request: request.scheme == 'http'
 USER_AGENTS_CACHE = 'default'
+
 ROOT_URLCONF = 'FetcherApp.urls'
 
 TEMPLATES = [
