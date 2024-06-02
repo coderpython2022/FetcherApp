@@ -34,16 +34,44 @@
         </tr>
 
         <tr>
-                    <td>{{ip_address}}</td>
-                    <th scope="row">IP Address</th>
+            <td>{{ip_address}}</td>
+            <th scope="row">IP Address</th>
         </tr>
 
         <tr>
-                            <td>{{location_data}}</td>
-                            <th scope="row">Location</th>
-                </tr>
+            <td>{{ipData.country}}</td>
+            <th scope="row">Location</th>
+        </tr>
 
-                {{sss}}
+        <tr>
+            <td>{{ipData.regionName}}</td>
+            <th scope="row">Region</th>
+        </tr>
+
+        <tr>
+            <td>{{ipData.city}}</td>
+            <th scope="row">City</th>
+        </tr>
+
+        <tr>
+            <td>{{ipData.lat}}/{{ipData.lon}}</td>
+            <th scope="row">Latitude/Longitude</th>
+        </tr>
+
+        <tr>
+            <td>{{ipData.timezone}}</td>
+            <th scope="row">TimeZone</th>
+        </tr>
+
+        <tr>
+            <td>{{ipData.isp}}</td>
+            <th scope="row">ISP</th>
+        </tr>
+
+        <tr>
+            <td>{{cityFromLonAndLat}}</td>
+            <th scope="row">Full Address</th>
+        </tr>
 
   </tbody>
 </table>

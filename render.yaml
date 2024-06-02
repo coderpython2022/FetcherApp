@@ -1,0 +1,24 @@
+databases:
+  - name: AlFath Comp
+    databaseName: alfath
+    user: scripter
+
+ services:
+ - type: pserv
+   name: pgbouncer
+   runtime: docker
+   plan: standard
+   repo: https://github.com/coderpython2022/FetcherApp
+   envVars:
+   - key: postgres://scripter:wJ3IlgLKyQ4Gp7jZXyC3A2EfdiTZSWgT@dpg-cpdqhf5ds78s73emo850-a.oregon-postgres.render.com/alfath
+     fromDatabase:
+       name: AlFath Comp
+       property: connectionString
+   - key: POOL_MODE
+     value: transaction
+   - key: SERVER_RESET_QUERY
+     value: DISCARD ALL
+   - key: MAX_CLIENT_CONN
+     value: 500
+   - key: DEFAULT_POOL_SIZE
+     value: 50
