@@ -1,5 +1,11 @@
 {
     "version": 2,
+    "functions": {
+        "api/*.js": {
+            "memory": 1024,
+            "maxDuration": 30
+        }
+    },
     "builds": [
         {
             "src": "FetcherApp/wsgi.py",
@@ -26,11 +32,5 @@
             "src": "/(.*)",
             "dest": "FetcherApp/wsgi.py"
         }
-    ],
-    "functions": {
-        "api/*.js": {
-            "memory": 1024,
-            "maxDuration": 30
-        }
-    }
+    ]
 }
