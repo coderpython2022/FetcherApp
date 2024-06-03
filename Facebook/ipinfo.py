@@ -3,4 +3,8 @@ import json
 def ipinfo():
     ip = get('https://api.ipify.org').text
     query = get(f'http://ip-api.com/json/{ip}').text
-    return json.loads(query)
+
+    if ip and query:
+        return json.loads(query)
+    else:
+        pass

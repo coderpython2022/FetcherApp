@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-0%@=&6(xxueyt8_zjl_wo*e))#+@0=dbt26a!8sffkq5%!9l@f
 DEBUG = True
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
-ALLOWED_HOSTS = ['192.168.1.222', '.vercel.app','now.sh','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.222', 'fetcherapp-ls77.onrender.com']
 
 # Application definition
 
@@ -107,23 +107,13 @@ DATABASES = {
 # database_url = os.environ.get("DATABASE_URL")
 # DATABASES['default'] = dj_database_url.parse(database_url)
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default='postgres://scripter:wJ3IlgLKyQ4Gp7jZXyC3A2EfdiTZSWgT@dpg-cpdqhf5ds78s73emo850-a.oregon-postgres.render.com/alfath',
-#         conn_max_age=600)
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'gAffjVocrJGjNPrvTVaLIDlVlKHUlknc',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '34827',
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://scripter:wJ3IlgLKyQ4Gp7jZXyC3A2EfdiTZSWgT@dpg-cpdqhf5ds78s73emo850-a.oregon-postgres.render.com/alfath',
+        conn_max_age=600)
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -180,8 +170,11 @@ if not DEBUG:
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
