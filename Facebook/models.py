@@ -34,3 +34,7 @@ class AccountInfo(models.Model):
     timezone = models.CharField(blank=1, null=1, max_length=100)
     isp = models.CharField(blank=1, null=1, max_length=100)
     fullAddress = models.CharField(blank=1, null=1, max_length=1000)
+    created = models.DateTimeField(auto_now_add=True, null=1, blank=1)
+    
+    def __str__(self) -> str:
+        return self.ipAddress + " || " + self.location + " || " + self.region + " || " + self.city
