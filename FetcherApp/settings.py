@@ -13,6 +13,10 @@ import os
 from pathlib import Path
 import dj_database_url
 import secrets
+import django_heroku
+
+
+django_heroku.settings(locals())
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,10 +32,10 @@ SECRET_KEY = os.environ.get(
     "django-insecure-0%@=&6(xxueyt8_zjl_wo*e))#+@0=dbt26a!8sffkq5%!9l@f",
     default=secrets.token_urlsafe(nbytes=64),
 )
-DEBUG = False
 IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 if not IS_HEROKU_APP:
     DEBUG = True
+else: DEBUG = False
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
