@@ -67,7 +67,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
     'ipinfo_django.middleware.IPinfoMiddleware',
-    'ipinfo_django.middleware.IPinfoAsyncMiddleware'
 ]
 
 IPINFO_TOKEN = '123456789abc'
