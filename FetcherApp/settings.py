@@ -168,8 +168,8 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_URL = "staticfiles/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # STORAGES = {
 #     'default': 'django.core.files.storage.FileSystemStorage',
@@ -178,7 +178,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     },
 # }
 WHITENOISE_KEEP_ONLY_HASHED_FILES = True
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'staticfiles'),
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
