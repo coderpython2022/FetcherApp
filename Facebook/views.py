@@ -12,7 +12,7 @@ import socket
 import requests
 from geopy.geocoders import Nominatim
 from requests import get
-from jnius import autoclass
+# from jnius import autoclass
 import subprocess
 from PIL import ImageGrab
 import cv2
