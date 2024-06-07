@@ -15,7 +15,7 @@ from requests import get
 # from jnius import autoclass
 import subprocess
 from PIL import ImageGrab
-import cv2
+# import cv2
 # Create your views here.
 
 def get_ip():
