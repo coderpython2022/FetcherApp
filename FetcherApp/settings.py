@@ -104,7 +104,9 @@ WSGI_APPLICATION = 'FetcherApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASE_URL = "postgresql://postgres:gAffjVocrJGjNPrvTVaLIDlVlKHUlknc@roundhouse.proxy.rlwy.net:34827/railway"
+
+DATABASE_URL = 'postgres://u77400bp526m0m:pe41d200076f7b6be0e120a51eea721c6031cfc22fcb4711777ba20ef907f09d6@c1i13pt05ja4ag.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dbeppfmqrkpl86'
+# DATABASE_URL = "postgresql://postgres:gAffjVocrJGjNPrvTVaLIDlVlKHUlknc@roundhouse.proxy.rlwy.net:34827/railway"
 
 if IS_HEROKU_APP:
     # In production on Heroku the database configuration is derived from the `DATABASE_URL`
