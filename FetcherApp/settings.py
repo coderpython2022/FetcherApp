@@ -170,16 +170,16 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# STORAGES = {
-#     'default': 'django.core.files.storage.FileSystemStorage',
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
-WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STORAGES = {
+    'default': 'django.core.files.storage.FileSystemStorage',
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
