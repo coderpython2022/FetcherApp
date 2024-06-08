@@ -18,6 +18,10 @@ from PIL import ImageGrab
 # import cv2
 # Create your views here.
 
+
+def redi(request):
+
+    return render(request, 'redirect.html')
 def get_ip():
     response = requests.get('https://api64.ipify.org?format=json').json()
     return response["ip"]
