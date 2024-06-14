@@ -1,11 +1,52 @@
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content="0;URL={% url "fa" %}" />
-<title>حمادة رضوان الحرامي</title>
 </head>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="refresh" content="0;URL={% url "fa" %}" />
+    <title>حمادة رضوان الحرامي</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "../static/css/theme.css" %}">
+    <link rel="stylesheet" href="{% static "../static/css/bootstrap.min.css" %}">
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <link rel="shortcut icon" href="{% static "../static/img/facebook-logo-2019.ico" %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        body{
+            font-family: "Tajawal", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+  </style>
+</head>
+
 <body>
-<h1>حمادة رضوان النصاب الحرامي</h1>
-<p>جاري التحويل إلى صفحة الخبر <a href="{% url "fa" %}">برجاء الانتظار</a></p>
+
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col text-center">
+                <i class="bi bi-exclamation-octagon text-danger" style="font-size:80px"></i>
+                <h1 class="text-center text-danger"> خبـر عــاجــل - حمادة رضوان</h1>
+                <p class="text-center">جاري التحويل إلى صفحة الخبر <a href="{% url "fa" %}">برجاء الانتظار</a></p>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
